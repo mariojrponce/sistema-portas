@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:decorate xmlns="http://www.w3.org/1999/xhtml"
+             xmlns:h="http://xmlns.jcp.org/jsf/html"
+             xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+             template="tamplate.xhtml"
+             xmlns:p="http://primefaces.org/ui"
+             xmlns:sc="http://xmlns.jcp.org/jsf/composite/sccomp"
+             xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <center>
+        <h1>Bem-vindo ao sistema de monitoremento de portas</h1>
+        <legend>Monitoramento das portas em tempo real logo abaixo:</legend>
+    </center>
+    
+    <p:dataTable value="#{portaBean.entidades}" var="portaInd"  rendered="#{portaBean.busca == true}">
+                    <p:column headerText="Nome da porta" sortBy="#{portaInd.nome}">
+                        <h:outputText value="#{portaInd.nome}"></h:outputText>
+                    </p:column>
+                    <p:column headerText="Momento" sortBy="#{portaInd.momento}">
+                        <h:outputText value="#{portaInd.momento}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss"></f:convertDateTime>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Status" sortBy="#{portaInd.status}">
+                        <h:outputText value="#{portaInd.status}">
+                            <h:outputText value="#{portaInd.status}"></h:outputText>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Info" sortBy="#{portaInd.info}">
+                        <h:outputText value="#{portaInd.info}">
+                            <h:outputText value="#{portaInd.info}"></h:outputText>
+                        </h:outputText>
+                    </p:column>
+    </p:dataTable>
+</ui:decorate>
+
